@@ -170,5 +170,27 @@ noout = subset(no_miss, mahal < cutoff)
 
 no_miss[mahal >= cutoff, c("School.Name", "COSTT4_A", "TUITIONFEE_IN", "TUITIONFEE_OUT", "MN_EARN_WNE_P6", "MD_EARN_WNE_P6", "MN_EARN_WNE_P10", "MD_EARN_WNE_P10")]
 ```
+## Break-even point calculation
+```{r}
+BREAKEVENinstate=lapply(c(MN_EARN_WNE_P6), c(TUITIONFEE_IN), divide)
+BREAKEVENoutstate=lapply(c(MN_EARN_WNE_P6), c(TUITIONFEE_OUT), divide)
+```
 
+## Current ROI USING MEAN EARNINGS of beigining salary
+
+```{r}
+diffinstate=lapply(c(MN_EARN_WNE_P6), c(TUITIONFEE_IN),diff)
+CROIinstate=lapply(c(diffinstate), c(TUITIONFEE_IN),divide)
+diffoutstate=lapply(c(MN_EARN_WNE_P6), c(TUITIONFEE_OUT),diff)
+CROIoutstate=lapply(c(diffoutstate), c((TUITIONFEE_OUT),divide)
+```
+## Life time ROI USING MEAN EARNINGS of end career salary
+
+```{r}
+diffinstate=lapply(c(MN_EARN_WNE_P10), c(TUITIONFEE_IN),diff)
+CROIinstate=lapply(c(diffinstate), c(TUITIONFEE_IN),divide)
+diffoutstate=lapply(c(MN_EARN_WNE_P10), c(TUITIONFEE_OUT),diff)
+CROIoutstate=lapply(c(diffoutstate), c((TUITIONFEE_OUT),divide)
+
+```
 We get 10 schools as outliers. Need more analysis about them.
